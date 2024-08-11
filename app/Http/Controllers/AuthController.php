@@ -20,6 +20,8 @@ class AuthController extends Controller
 
     public function store(RegisterUserRequest $request)
     {
-        dump($request);
+        $validated = $request->validated();
+        $hashPassword = bcrypt($request->password);
+        dd($hashPassword);
     }
 }

@@ -30,8 +30,11 @@ class RegisterUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'A title is required',
-            'password.required' => 'A message is required',
+            'email.required' => 'Email harus di isi',
+
+
+            'password.required' => 'Password harus di isi',
+            'password.confirmed' => 'Password tidak sama dengan Password Confirmation',
         ];
     }
 }

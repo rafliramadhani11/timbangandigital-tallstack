@@ -6,44 +6,37 @@
         </h2>
     </div>
 
-    <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
 
         <form class="space-y-6" action="{{ route('guest.store') }}" method="POST">
             @csrf
             <div>
-                <x-label for="email" :value="__('Email Address')" />
+                <x-label for="email" :value="__('Email Address')" class="after:content-['*'] after:text-red-500" />
                 <div class="mt-1">
-                    <x-auth.input type="text" id="email" name="email" />
-                    @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    <x-auth.input type="email" id="email" name="email" value="{{ old('email') }}" />
+                    <x-input-error :messages="$errors->get('email')" />
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <x-label for="password" :value="__('Password')" />
+                    <x-label for="password" :value="__('Password')" class="after:content-['*'] after:text-red-500" />
                     <div class="text-sm">
                         <x-link-href href="#" :value="__('Lupa Password ?')" />
                     </div>
                 </div>
                 <div class="mt-1 ">
                     <x-auth.input type="password" id="password" name="password" />
-                    @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    <x-input-error :messages="$errors->get('password')" />
                 </div>
             </div>
 
             <div>
                 <div>
-                    <x-label for="password" :value="__('Password Confirmation')" />
+                    <x-label for="password" :value="__('Password Confirmation')" class="after:content-['*'] after:text-red-500" />
                 </div>
                 <div class="mt-1 ">
                     <x-auth.input type="password" id="password" name="password_confirmation" />
-                    @error('password_confirmation')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
                 </div>
             </div>
 

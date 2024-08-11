@@ -10,15 +10,15 @@
     <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" action="#" method="POST">
             <div>
-                <x-label for="email" :value="__('Email Address')" />
-                <div class="mt-1">
+                <x-label for="email" :value="__('Email Address')" class="after:content-['*'] after:text-red-500" />
+                <div class="mt-1 ">
                     <x-auth.input type="email" id="email" name="email" />
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <x-label for="password" :value="__('Password')" />
+                    <x-label for="password" :value="__('Password')" class="after:content-['*'] after:text-red-500" />
                     <div class="text-sm">
                         <x-link-href href="#" :value="__('Lupa Password ?')" />
                     </div>
